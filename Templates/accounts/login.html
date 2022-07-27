@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block titulo %}
+<title>Control de cuentas de usuario</title>
+{% endblock titulo %}
+
+
+{% block sub_titulo %}
+<h1 class="mt-4">Inicio de sesión</h1>
+{% endblock sub_titulo %}
+
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Para continuar escriba su usuario y contraseña</li>
+{% endblock sub_titulo_2 %}
+
+{% block campos %}
+<form action={% url 'login' %} method = "POST"> 
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button>>Entrar</button>
+</form>
+{% endblock campos %}
+

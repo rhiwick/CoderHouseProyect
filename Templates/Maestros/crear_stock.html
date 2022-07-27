@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block titulo %}
+<title>Alta de Productos</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Alta de productos</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Creación y edicion de productos</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}{% endblock link %}
+
+{% block campos %}
+
+<body>
+    <form action="/crear-stock/" method = "POST"> 
+        {% csrf_token %}
+        <p>Creacion de productos:</p>
+        <p>Nombre Compañía: <input type= 'text' name = 'producto_cia'></p>
+        <p>Código de Producto: <input type= 'text' name = 'producto_codigo'></p>
+        <p>Descripción de Producto: <input type= 'text' name = 'producto_descripcion'></p>
+        <p>Valor: <input type= 'number' name = 'producto_costo'></p>
+        <input type = 'submit' value = 'Ingresar'>
+ 
+    </form>
+
+</body>
+
+{% endblock campos %}
+
+
+

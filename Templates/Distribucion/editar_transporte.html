@@ -1,0 +1,31 @@
+{% extends 'Distribucion/busqueda_transporte.html' %}
+
+
+{% block titulo %}
+<title>Edicion de transporte</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Edicion de transportes</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Edite según el campo deseado.</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}>{% endblock link %}
+{% block link_dist %}href={% url 'distribucion' %}>{% endblock link_dist %}
+
+
+
+{% block accion %}
+<form action= {% url 'editar_transporte' %}>
+{% endblock accion %}
+
+{% block Form %}
+{{transporte}}
+{% endblock Form %}
+
+{% block botones %}
+<a href={% url 'edite_transporte' transporte.id %}>Editar</a>
+{% endblock botones %}

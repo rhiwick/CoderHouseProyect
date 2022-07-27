@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+<title>Busqueda de productos</title>
+{% endblock titulo %}
+
+
+{% block sub_titulo %}
+<h1 class="mt-4">Busqueda de productos</h1>
+{% endblock sub_titulo %}
+
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Introduzca un texto exacto o que contenga</li>
+{% endblock sub_titulo_2 %}
+
+
+{% block link %}href={% url 'maestro' %}>{% endblock link %}
+
+
+{% block campos %}
+
+{% block accion %}
+    <form action= {% url 'busqueda_producto' %}>
+{% endblock accion %}
+
+{% block informacion %}
+        {{form}}
+        <button>Buscar</button>
+    </form>
+<p></p>
+
+    
+<p></p>
+<p></p>
+<p>Resultado de la busqueda:</p>
+    {% if productos_listado %}
+    <ul>
+        {%for producto in productos_listado%}
+        <li>{% block Form %}{% endblock Form %}{% block botones %}{% endblock botones %}Compañia: {{producto.producto_cia}}- Código: {{producto.producto_codigo}}- Descripción: {{producto.producto_descripcion}}- Fecha Creacion: {{producto.producto_fecha}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encontraron datos. Reintente.
+    {% endif %}
+{% endblock informacion %}
+
+{% endblock campos %}

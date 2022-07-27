@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% block titulo %}
+<title>Maestro de Productos</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Maestro de Productos</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Seleccione</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href=""{% endblock link %}
+
+
+{% block tarjeta %}
+<div class="row">
+{% endblock tarjeta %}
+{% block campos %}
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Crear producto</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'crear_producto' %}>>Altas de producto</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Editar producto</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+            
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'editar_producto' %}>>Edicion de producto</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Eliminar producto</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'eliminar_producto' %}>>Eliminar producto</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock campos %}
+
+
+

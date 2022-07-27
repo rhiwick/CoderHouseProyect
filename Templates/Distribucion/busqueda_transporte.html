@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+<title>Busqueda de transportes</title>
+{% endblock titulo %}
+
+
+{% block sub_titulo %}
+<h1 class="mt-4">Busqueda de productos</h1>
+{% endblock sub_titulo %}
+
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Introduzca un texto exacto o que contenga</li>
+{% endblock sub_titulo_2 %}
+
+
+{% block link %}href={% url 'maestro' %}>{% endblock link %}
+{% block link_dist %}href={% url 'distribucion' %}>{% endblock link_dist %}
+
+{% block campos %}
+
+{% block accion %}
+    <form action= {% url 'busqueda_transporte' %}>
+{% endblock accion %}
+
+{% block informacion %}
+        {% comment %} {{form}}
+        <button>Buscar</button>
+    </form>
+<p></p> {% endcomment %}
+
+    
+<p></p>
+<p></p>
+<p>Resultado de la busqueda:</p>
+    {% if object_list %}
+    <ul>
+        {%for transporte in object_list %}
+        <li>{% block Form %}{% endblock Form %}{% block botones %}{% endblock botones %}Codigo: {{transporte.codigo}}- Tipo: {{transporte.tipo}}- Marca: {{transporte.marca}}- Modelo: {{transporte.modelo}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encontraron datos. Reintente.
+    {% endif %}
+{% endblock informacion %}
+
+{% endblock campos %}

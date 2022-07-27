@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block titulo %}
+<title>Modulo Distribución</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Alta y baja de transportes</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Seleccione</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}>{% endblock link %}
+{% block link_dist %}href={% url 'distribucion' %}>{% endblock link_dist %}
+
+
+{% block tarjeta %}
+<div class="row">
+{% endblock tarjeta %}
+{% block campos %}
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Crear Transporte</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'crear_transporte' %}>>Crear vehiculo</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Editar vehiculo</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+            
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'editar_transporte' %}>>Edicion de transportes</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Eliminar transporte</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                
+                <a class="small text-white stretched-link"<a class="nav-link" href={% url 'eliminar_transporte' %}>>Eliminar vehiculo</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock campos %}
+
+
+

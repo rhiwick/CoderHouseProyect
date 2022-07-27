@@ -1,0 +1,30 @@
+{% extends 'Maestros/busqueda_producto.html' %}
+
+
+{% block titulo %}
+<title>Edicion de Productos</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Edicion de Productos</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Edite según el campo deseado.</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}{% endblock link %}
+
+
+
+{% block accion %}
+<form action= {% url 'editar_producto' %}>
+{% endblock accion %}
+
+{% block Form %}
+{{producto}}
+{% endblock Form %}
+
+{% block botones %}
+<a href={% url 'edite_producto' producto.id %}>Editar</a>
+{% endblock botones %}

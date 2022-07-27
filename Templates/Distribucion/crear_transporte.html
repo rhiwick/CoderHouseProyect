@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block titulo %}
+<title>Alta de Transportes</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Alta de transportes</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">Creación y edicion de transportes</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}>{% endblock link %}
+{% block link_dist %}href={% url 'distribucion' %}>{% endblock link_dist %}
+
+{% block campos %}
+
+<body>
+    <form action={% url 'crear_transporte' %} method = "POST"> 
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>>Crear</button>
+    </form>
+</body>
+
+{% endblock campos %}

@@ -1,0 +1,29 @@
+{% extends 'Maestros/busqueda_producto.html' %}
+
+
+{% block titulo %}
+<title>Eliminacion de Productos</title>
+{% endblock titulo %}
+
+{% block sub_titulo %}
+<h1 class="mt-4">Eliminacion de Productos</h1>
+{% endblock sub_titulo %}
+
+{% block sub_titulo_2 %}
+<li class="breadcrumb-item active">¡¡¡CUIDADO!!! Esta a punto de realizar una accion irreversible.</li>
+{% endblock sub_titulo_2 %}
+
+{% block link %}href={% url 'maestro' %}{% endblock link %}
+
+
+{% block accion %}
+<form action= {% url 'eliminar_producto' %}>
+{% endblock accion %}
+
+{% block Form %}
+{{producto}}
+{% endblock Form %}
+
+{% block botones %}
+<a href={% url 'elimine_producto' producto.id %}>Eliminar</a>
+{% endblock botones %}

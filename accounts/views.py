@@ -19,7 +19,7 @@ def conectarse(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return render(request, 'index.html')
+                return redirect('index')
             else:
                 return render(request, 'accounts/login.html', {'form': form_login})
         else:
@@ -30,15 +30,17 @@ def conectarse(request):
 
 
 def registrarse(request):
-    if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-        else:
-            return render(request, 'accounts/registrarse.html', {'form':form})
-    form = MyUserCreationForm()
-    return render(request, 'accounts/registrarse.html', {'form':form})
+    if not login_required():
+        if request.method == 'POST':
+            form = MyUserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('index')
+            else:
+                return render(request, 'accounts/registrarse.html', {'form':form})
+        form = MyUserCreationForm()
+        return render(request, 'accounts/registrarse.html', {'form':form})
+    return redirect('index')
 
 
 @login_required
@@ -78,7 +80,6 @@ def editar_perfil(request):
                     }
                              )
     return render(request, 'accounts/editar_perfil.html',{'form':form})
-
 
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/cambiar_password.html'

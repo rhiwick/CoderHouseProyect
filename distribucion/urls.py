@@ -15,5 +15,4 @@ urlpatterns = [
     path('elimine_transporte/<int:pk>/', views.ElimineTransporte.as_view() , name = 'elimine_transporte'),
     path('busqueda_transporte/' , views.BusquedaTransporte.as_view() , name = 'busqueda_transporte'),
 
-    
 ]

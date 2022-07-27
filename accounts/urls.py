@@ -4,6 +4,8 @@ from re import template
 from django.urls import path
 from .views import ChangePasswordView, conectarse, registrarse, perfil, editar_perfil, ChangePasswordView
 from django.contrib.auth.views import LogoutView
+
+
 urlpatterns = [
     path('login/', conectarse, name='login'),
     path('logout/', LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),

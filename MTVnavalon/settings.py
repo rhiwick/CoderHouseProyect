@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'vistas',
     'distribucion',
     'accounts',
+    'muro',
 ]
 
 MIDDLEWARE = [

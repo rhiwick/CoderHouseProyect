@@ -14,7 +14,7 @@ class MyUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1','password2']
-        help_texts = {key:'' for key in fields}
+        help_texts = {key: '' for key in fields}
         
         
 class MyUserEditForm(forms.Form):

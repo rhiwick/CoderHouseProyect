@@ -30,18 +30,17 @@ def conectarse(request):
 
 
 def registrarse(request):
-    if not login_required():
-        if request.method == 'POST':
-            form = MyUserCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('index')
-            else:
-                return render(request, 'accounts/registrarse.html', {'form':form})
-        form = MyUserCreationForm()
-        return render(request, 'accounts/registrarse.html', {'form':form})
-    return redirect('index')
-
+    if request.method == 'POST':
+        form = MyUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            return render(request, 'accounts/registrarse.html', {'form':form})
+        
+    form = MyUserCreationForm()
+    return render(request, 'accounts/registrarse.html', {'form':form})
+        
 
 @login_required
 def perfil(request):

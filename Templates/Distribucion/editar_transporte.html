@@ -22,9 +22,13 @@
 <form action= {% url 'editar_transporte' %}>
 {% endblock accion %}
 
+
+
+
 {% block Form %}
 {{transporte}}
 {% endblock Form %}
+
 
 {% block botones %}
 <a href={% url 'edite_transporte' transporte.id %}>Editar</a>

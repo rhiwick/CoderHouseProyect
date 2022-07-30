@@ -111,7 +111,3 @@ def edite_producto(request, id):
     form_producto = FormEditarProducto(initial={'producto_cia': prod.producto_cia,'producto_codigo': prod.producto_codigo, 'producto_descripcion': prod.producto_descripcion, 'producto_costo': prod.producto_costo})
     return render(request, 'Maestros/edite_producto.html', {'form':form_producto, 'producto':prod})
 
-
-def ahoracrequeyamesalio():
-    ...
-    

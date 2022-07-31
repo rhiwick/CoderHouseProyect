@@ -25,7 +25,9 @@
 {% endblock accion %}
 
 {% block informacion %}
-        {{form}}
+        
+    {% if productos_listado %}
+    {{form}}
         <button>Buscar</button>
     </form>
 <p></p>
@@ -34,14 +36,13 @@
 <p></p>
 <p></p>
 <p>Resultado de la busqueda:</p>
-    {% if productos_listado %}
     <ul>
         {%for producto in productos_listado%}
         <li>{% block Form %}{% endblock Form %}{% block botones %}{% endblock botones %}Compañia: {{producto.producto_cia}}- Código: {{producto.producto_codigo}}- Descripción: {{producto.producto_descripcion}}- Fecha Creacion: {{producto.producto_fecha}}</li>
         {% endfor %}
     </ul>
     {% else %}
-    No se encontraron datos. Reintente.
+    Aun no hay productos creados, puede dar de alta uno en la seccion Maestros
     {% endif %}
 {% endblock informacion %}
 

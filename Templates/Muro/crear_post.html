@@ -1,0 +1,21 @@
+{% extends 'Muro/base.html' %}
+{% block titulo %}
+<h1 class="fw-bolder">Crear Post</h1>
+{% endblock titulo %}
+{% block crear_posteo %}
+<p>
+    <a href = {% url 'muro' %}>Volver<a/>
+</p>
+<body>
+<p>
+    <form action={%url 'postear'%} method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table>
+            {{form.media}}
+            {{form.as_table}}
+        </table>
+    <button>Crear Post</button>
+</p>
+
+
+{% endblock crear_posteo %}

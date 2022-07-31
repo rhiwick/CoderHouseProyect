@@ -25,7 +25,9 @@
 {% endblock accion %}
 
 {% block informacion %}
-{{form}}
+
+    {% if object_list %}
+    {{form}}
         <button>Buscar</button>
     </form>
 <p></p>
@@ -33,15 +35,14 @@
     
 <p></p>
 <p></p>
-<p>Resultado de la busqueda:</p>
-    {% if object_list %}
+    <p>Resultado de la busqueda:</p>
     <ul>
         {%for transporte in object_list %}
         <li>{% block Form %}{% endblock Form %}{% block botones %}{% endblock botones %}Codigo: {{transporte.codigo}}- Tipo: {{transporte.tipo}}- Marca: {{transporte.marca}}- Modelo: {{transporte.modelo}}</li>
         {% endfor %}
     </ul>
     {% else %}
-    No se encontraron datos. Reintente.
+    Aun no se han creado transportes. Cree uno y vuelva a consultar
     {% endif %}
 {% endblock informacion %}
 

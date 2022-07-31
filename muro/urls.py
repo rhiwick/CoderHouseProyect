@@ -3,7 +3,8 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('muro/', views.muro , name = 'muro'),
+    path('muro/' , views.Muro.as_view() , name = 'muro'),
+    path('postear/', views.postear , name = 'postear'),
 
 
 ]

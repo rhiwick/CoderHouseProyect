@@ -1,9 +1,10 @@
-from dataclasses import field
-import email
-from socket import fromshare
+
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextFormField
+
 
 class MyUserCreationForm(UserCreationForm):
     username = forms.CharField(label='Usuario', max_length=30)
@@ -18,8 +19,10 @@ class MyUserCreationForm(UserCreationForm):
         
         
 class MyUserEditForm(forms.Form):
-    
     email = forms.EmailField(required=False)
     first_name = forms.CharField(label='Nombre', max_length=30, required=False)
     last_name = forms.CharField(label='Apellido', max_length=30,required=False)
+    descripcion = RichTextFormField()
     avatar = forms.ImageField(required=False)
+    
+    

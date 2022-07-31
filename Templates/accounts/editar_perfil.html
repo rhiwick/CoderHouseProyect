@@ -2,13 +2,13 @@
 {% block login %}
 {% endblock login %}
 {% block titulo %}
-<title>Editar Perfio</title>
+<title>Editar Perfil</title>
 {% endblock titulo %}
 
 {% block sub_titulo %}
 <h1 class="mt-4">
     
-    Editando Perfil de: {{request.user.username}}
+    Edicion del perfil: {{request.user.username}}
 </h1>
 {% endblock sub_titulo %}
 
@@ -18,18 +18,17 @@
 
 {% block campos %}
 <p>
-    <a href = {% url 'maestro' %}>Volver<a/>
+    <a href = {% url 'perfil' %}>Volver<a/>
 </p>
 <body>
 <p>
     <form action={%url 'editar_perfil'%} method="post" enctype="multipart/form-data">
         {%csrf_token%}
         <table>
-
+            {{form.media}}
             {{form.as_table}}
-
         </table>
-<button>Editar</button>
+    <button>Editar</button>
 </p>
 </body>
 

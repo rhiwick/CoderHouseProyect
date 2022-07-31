@@ -44,7 +44,6 @@ def registrarse(request):
 
 @login_required
 def perfil(request):
-    
     return render(request, 'accounts/perfil.html')
 
 
@@ -61,6 +60,8 @@ def editar_perfil(request):
                 user.first_name = data.get('first_name')
             if data.get('last_name'):
                 user.last_name = data.get('last_name')
+            if data.get('descripcion'):
+                mas_datos_usuario.descripcion = data.get('descripcion')
             user.email = data.get('email') if data.get('email') else user.mail
             mas_datos_usuario.avatar = data.get('avatar') if data.get('avatar') else mas_datos_usuario.avatar
             mas_datos_usuario.save()
@@ -74,10 +75,10 @@ def editar_perfil(request):
             'email': user.email,
             'first_name': user.first_name,
             'last_name' : user.last_name,
-            'avatar' : mas_datos_usuario.avatar
-
-                    }
-                             )
+            'avatar' : mas_datos_usuario.avatar,
+            'descripcion': mas_datos_usuario.descripcion,
+            
+                    } )
     return render(request, 'accounts/editar_perfil.html',{'form':form})
 
 class ChangePasswordView(PasswordChangeView):

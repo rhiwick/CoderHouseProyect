@@ -34,14 +34,17 @@ Apellido: {{request.user.last_name}}
         <li>
 Email: {{request.user.email}}
         </li>
-<li>
-    <p>Avatar:</p>
-    {% if request.user.masdatosusuario.avatar %}
-    <img src={{request.user.masdatosusuario.avatar.url}} alt="" height="200px">
-    {% endif %}
-</li>
+        <li>
+Descripcion: {{request.user.masdatosusuario.descripcion | safe}}
+        </li>
+        <li>
+            <p>Avatar:</p>
+            {% if request.user.masdatosusuario.avatar %}
+            <img src={{request.user.masdatosusuario.avatar.url}} alt="" height="200px">
+            {% endif %}
+        </li>
 
-</ul> 
+    </ul> 
 </p>
 </body>
 

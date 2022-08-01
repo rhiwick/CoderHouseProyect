@@ -51,7 +51,7 @@
                         {% for posteo in object_list %}
                         <div class="card-body bg-info">
                             <div class="small text-muted">{{posteo.fecha_posteo}}</div>
-                            <img src={{posteo.imagen.url}}/>
+                            <img src={{posteo.imagen}}/>
                             <h2 class="card-title">{{posteo.titulo}}</h2>
                             <h4 class="card-title">{{posteo.sub_titulo}}</h4>
                             <p class="card-text">{{posteo.posteo | safe}}</p>

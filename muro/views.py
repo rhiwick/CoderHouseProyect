@@ -8,16 +8,20 @@ from django.views.generic.list import ListView
 
 
 
-class Muro(ListView):
-    model = models.PosteosUsuarios
-    template_name = 'Muro/base.html'
+# class Muro(ListView):
+#     model = models.PosteosUsuarios
+#     template_name = 'Muro/base.html'
     
-    def get_queryset(self):
+#     def get_queryset(self):
         
-        object_list = self.model.objects.all()
+#         object_list = self.model.objects.all()
         
-        return object_list
+#         return object_list
 
+
+def muro(request):
+    posteos = models.PosteosUsuarios.objects.all()
+    return render(request, 'Muro/base.html', {'object_list':posteos} ) 
     
 @login_required
 def postear(request):

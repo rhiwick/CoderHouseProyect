@@ -49,29 +49,21 @@
                     <div class="card mb-4">
 
                         {% for posteo in object_list %}
-                        <div><img class="card-img-top" src={{request.posteo.imagen}} /></div>
                         <div class="card-body bg-info">
                             <div class="small text-muted">{{posteo.fecha_posteo}}</div>
+                            <img src={{posteo.imagen.url}}/>
                             <h2 class="card-title">{{posteo.titulo}}</h2>
+                            <h4 class="card-title">{{posteo.sub_titulo}}</h4>
                             <p class="card-text">{{posteo.posteo | safe}}</p>
-                            <a class="btn btn-dark" href="#!">Read more →</a>
+                            <a class="btn btn-dark" href="#!">Leer más →</a>
                         </div>
-                    </div>
+                        <div class="small text-muted">Autor: {{posteo.autor}} </div>
+            
 
                     {% endfor %}
+                    </div>
                     <!-- Pagination-->
-                    <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav>
+                    
                 </div>
                 <!-- Side widgets-->
                 

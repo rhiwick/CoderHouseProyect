@@ -84,3 +84,4 @@ def editar_perfil(request):
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/cambiar_password.html'
     success_url = '/accounts/perfil/'
+    

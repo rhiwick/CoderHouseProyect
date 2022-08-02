@@ -1,10 +1,11 @@
+from http.client import REQUESTED_RANGE_NOT_SATISFIABLE
 from django.shortcuts import render
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from . import models
 from . import forms
 from datetime import datetime
-from django.views.generic.list import ListView
+from django.contrib.auth.models import User
 
 
 
@@ -20,7 +21,7 @@ from django.views.generic.list import ListView
 
 
 def muro(request):
-    posteos = models.PosteosUsuarios.objects.all()
+    posteos = reversed(models.PosteosUsuarios.objects.all())
     return render(request, 'Muro/base.html', {'object_list':posteos} ) 
     
 @login_required
@@ -51,3 +52,7 @@ def postear(request):
             
                     } )
     return render(request, 'Muro/crear_post.html',{'form':form})
+
+
+def backup(request):
+    return render(request, 'base_backup.html')

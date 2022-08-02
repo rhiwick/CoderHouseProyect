@@ -10,3 +10,8 @@ class PosteosUsuarios(models.Model):
     sub_titulo = models.CharField(max_length=30)
     posteo = RichTextField()
     fecha_posteo = models.DateTimeField(null=True)
+
+
+class Autor(models.Model):
+    autor = models.CharField(max_length=15)
+    

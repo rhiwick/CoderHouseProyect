@@ -7,3 +7,4 @@ class FormCrearPosteo(forms.Form):
     titulo = forms.CharField()
     sub_titulo = forms.CharField()
     posteo = RichTextFormField()
+    

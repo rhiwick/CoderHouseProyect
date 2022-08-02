@@ -5,6 +5,8 @@ from django.urls import path
 urlpatterns = [
     path('muro/' , views.muro , name = 'muro'),
     path('postear/', views.postear , name = 'postear'),
+    path('backup/', views.backup , name = 'backup'),
+
 
 
 ]

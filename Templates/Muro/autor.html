@@ -1,0 +1,20 @@
+{% extends 'Muro/base.html' %}
+
+{% block blog_contenido %}
+
+
+
+{% for dato in object_list %}
+
+<p>Escrito por:</p>
+        <p>Nombre: {{dato.nombre}}</p>
+        <p>Apellido: {{dato.apellido}}</p>
+        <p>e-mail: {{dato.correo}}</p>
+
+        <p><a class="nav-link" href={% url 'muro' %}>Volver</a></p>
+{% endfor %}
+
+
+
+
+{% endblock blog_contenido %}

@@ -71,7 +71,6 @@
                     {% comment %} {% endcomment %}
                     
                     {%for posteo in object_list%}
-                    
                     <div class="post-preview">
                         {% comment %} <a href={%url 'detalle_post' post.slug %}> {% endcomment %}
                             <img src={{posteo.imagen.url}} alt="" height="110px"/>
@@ -81,7 +80,7 @@
                         </a>
                         <p class="post-meta">
                             Escrito por:
-                            <a href="#!">{{posteo.autor}}</a> el
+                            <a href={% url 'ver_autor' posteo.autor %}>{{posteo.autor}}</a>
                             <div class="small text-muted">{{posteo.fecha_posteo}}</div>
                         </p>
                     </div>
@@ -96,30 +95,47 @@
                     <!-- Pager-->
                 </div>
             </div>
-        
-            <div class= "row" >
-               <div class ="col-md-12 col-lg-12 col-sm-12 col-sx-12" >
-                <div class = "col-md-6 float-left">
-                    {%if posts.has_previous%}
-                        <div class = "clearfix">
-                            <a href="?page={{posts.previous_page_number}}" class= "btn btn-primary float-left">Anterior</a>
-                        </div>
-                    {% endif %}
+
+
+            {% if is_paginated %}
+
+            
+                <div class="mt-2">
+                    <ul class"pagination">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.previous_page_number}}" class="page-link">Anterior</a>
+                            </li>
+                        {% endif %}
+
+                        {% for i in paginator.page_range %}
+
+                            {% if page_obj.number == i %}
+                                <li class="page-item active">
+                                    <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                </li>
+                            {% endif %}
+
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Siguiente</a>
+                            </li>
+                        {% endif %}
+                    </ul>
                 </div>
-               </div> 
-            </div>
-        
-            <div class= "row" >
-                <div class ="col-md-12 col-lg-12 col-sm-12 col-sx-12" >
-                 <div class = "col-md-6 float-left">
-                     {%if posts.has_next%}
-                         <div class = "clearfix">
-                             <a href="?page={{posts.next_page_number}}" class= "btn btn-primary float-left">Siguiente</a>
-                         </div>
-                     {% endif %}
-                 </div>
-                </div> 
-             </div>
+            
+            {% endif %}
+
+
+
+
+
+
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -157,7 +173,7 @@
                                     </span>
                                     
                                 </a>
-                                Navalon
+                                
                             </li>
                         </ul>
                         <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>

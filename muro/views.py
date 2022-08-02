@@ -1,12 +1,12 @@
-from http.client import REQUESTED_RANGE_NOT_SATISFIABLE
+from multiprocessing import context
 from django.shortcuts import render
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from . import models
 from . import forms
 from datetime import datetime
-from django.contrib.auth.models import User
 from accounts.models import MasDatosUsuario as descripcion
+from django.views.generic.list import ListView
 
 
 
@@ -19,6 +19,17 @@ from accounts.models import MasDatosUsuario as descripcion
 #         object_list = self.model.objects.all()
         
 #         return object_list
+
+class Posteos(ListView):
+    template_name = 'Muro/base.html'
+    queryset = models.PosteosUsuarios.objects.all().order_by('-id')
+    paginate_by = 2
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = 'Listado de post'
+        
+        return context
 
 
 def muro(request):
@@ -52,6 +63,7 @@ def postear(request):
             datos_autor.nombre = user.first_name
             datos_autor.apellido = user.last_name
             datos_autor.correo = user.email
+            datos_autor.usuario = user.username
             datos_autor.id = user.id
             
             datos_autor.save()
@@ -74,9 +86,9 @@ def backup(request):
     return render(request, 'base_backup.html')
 
 
-def ver_autor(request):
-    autor = request.GET.get('id')
-    #productos_listado = Producto.objects.all()
-    ver_autor = models.Autor.objects.filter(id=autor)
-    print(ver_autor)
-    return render(request, 'Muro/ver_autor.html', {'autor':ver_autor} )
+def ver_autor(request, user):
+    print(user)
+    object_list = models.Autor.objects.filter(usuario=user)
+    print(object_list)
+        
+    return render(request, 'Muro/autor.html', {'object_list':object_list})

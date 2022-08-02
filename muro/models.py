@@ -16,6 +16,7 @@ class PosteosUsuarios(models.Model):
 
 class Autor(models.Model):
     id = IntegerField()
+    usuario = models.CharField(max_length=50) 
     nombre = models.CharField(max_length=15)
     apellido = models.CharField(max_length=15)
     correo = models.EmailField(null=True)

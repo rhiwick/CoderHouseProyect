@@ -5,13 +5,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from distribucion.forms import FormBusquedaTransporte
 
 from distribucion.models import Transporte
-# Create your views here.
+
+
 
 class CearTransporte(LoginRequiredMixin, CreateView):
     model = Transporte
     template_name = 'Distribucion/crear_transporte.html'
     success_url = '/distribucion/crear_transporte'
     fields = ['codigo', 'tipo', 'marca', 'modelo', 'tara', 'ejes']
+    
     
     
 class EditarTransporte(LoginRequiredMixin, ListView):
@@ -34,6 +36,7 @@ class EditarTransporte(LoginRequiredMixin, ListView):
         return context
     
     
+    
 class EliminarTransporte(LoginRequiredMixin, ListView):
     model = Transporte
     template_name = 'Distribucion/eliminar_transporte.html'
@@ -53,6 +56,7 @@ class EliminarTransporte(LoginRequiredMixin, ListView):
         return context
     
     
+    
 class EditeTransporte(LoginRequiredMixin, UpdateView):
     model = Transporte
     template_name = 'Distribucion/edite_transporte.html'
@@ -65,6 +69,7 @@ class ElimineTransporte(LoginRequiredMixin, DeleteView):
     model = Transporte
     template_name = 'Distribucion/elimine_transporte.html'
     success_url = '/distribucion/eliminar_transporte'
+    
     
     
 class BusquedaTransporte(LoginRequiredMixin, ListView):

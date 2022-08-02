@@ -10,16 +10,6 @@ from django.views.generic.list import ListView
 
 
 
-# class Muro(ListView):
-#     model = models.PosteosUsuarios
-#     template_name = 'Muro/base.html'
-    
-#     def get_queryset(self):
-        
-#         object_list = self.model.objects.all()
-        
-#         return object_list
-
 class Posteos(ListView):
     template_name = 'Muro/base.html'
     queryset = models.PosteosUsuarios.objects.all().order_by('-id')
@@ -68,7 +58,7 @@ def postear(request):
             
             datos_autor.save()
             
-            return redirect('muro')
+            return redirect('posteos')
         else:
             return render(request,'Muro/crear_post.html',{'form':form})
     form = forms.FormCrearPosteo(

@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login
 from .forms import MyUserCreationForm, MyUserEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView
-# Create your views here.
 from accounts.models import MasDatosUsuario
+
 
 def conectarse(request):
     if request.method == "POST":
@@ -19,7 +19,7 @@ def conectarse(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect('perfil')
             else:
                 return render(request, 'accounts/login.html', {'form': form_login})
         else:
@@ -80,6 +80,8 @@ def editar_perfil(request):
             
                     } )
     return render(request, 'accounts/editar_perfil.html',{'form':form})
+
+
 
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/cambiar_password.html'

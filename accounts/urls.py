@@ -1,6 +1,5 @@
 
 
-from re import template
 from django.urls import path
 from .views import ChangePasswordView, conectarse, registrarse, perfil, editar_perfil, ChangePasswordView
 from django.contrib.auth.views import LogoutView

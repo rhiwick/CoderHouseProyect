@@ -36,7 +36,7 @@
 
                         {%if request.user.is_authenticated %}
                         <li><a class="dropdown-item" href={%url 'perfil' %}>{{request.user.username}}</a> </li>
-                        <li><a class="dropdown-item" href={%url 'muro' %}>Blog</a> </li>
+                        <li><a class="dropdown-item" href={%url 'posteos' %}>Blog</a> </li>
                         <li><a class="dropdown-item" href={% url 'logout' %}>Desconectarse</a></li>
                         {% else %}
                         <li><a class="dropdown-item" href={% url 'login' %}>Conectarse</a></li>

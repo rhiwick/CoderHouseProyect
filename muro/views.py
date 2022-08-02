@@ -13,7 +13,7 @@ from django.views.generic.list import ListView
 class Posteos(ListView):
     template_name = 'Muro/base.html'
     queryset = models.PosteosUsuarios.objects.all().order_by('-id')
-    paginate_by = 2
+    paginate_by = 5
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -77,8 +77,7 @@ def backup(request):
 
 
 def ver_autor(request, user):
-    print(user)
+    
     object_list = models.Autor.objects.filter(usuario=user)
-    print(object_list)
-        
+    
     return render(request, 'Muro/autor.html', {'object_list':object_list})

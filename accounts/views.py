@@ -66,7 +66,7 @@ def editar_perfil(request):
             mas_datos_usuario.avatar = data.get('avatar') if data.get('avatar') else mas_datos_usuario.avatar
             mas_datos_usuario.save()
             user.save()
-            return redirect('index')
+            return redirect('perfil')
         
         else:
             return render(request,'accounts/editar_perfil.html',{'form':form})

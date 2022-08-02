@@ -1,5 +1,7 @@
+import email
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.forms import IntegerField
 
 # Create your models here.
 
@@ -13,5 +15,9 @@ class PosteosUsuarios(models.Model):
 
 
 class Autor(models.Model):
-    autor = models.CharField(max_length=15)
+    id = IntegerField()
+    nombre = models.CharField(max_length=15)
+    apellido = models.CharField(max_length=15)
+    correo = models.EmailField(null=True)
+    descripcion = RichTextField(null=True)
     

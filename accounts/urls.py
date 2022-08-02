@@ -14,3 +14,4 @@ urlpatterns = [
     path('perfil/editar/', editar_perfil, name='editar_perfil'),
     path('perfil/cambiar-password/', ChangePasswordView.as_view(), name='cambiar_password')   
 ]
+

@@ -1,10 +1,16 @@
 {% extends 'Muro/base.html' %}
-{% block titulo %}
+{% block blog_titulo %}
 <h1 class="fw-bolder">Crear Post</h1>
-{% endblock titulo %}
-{% block crear_posteo %}
+{% endblock blog_titulo %}
+{% block home %}
+<li class="nav-item">
+    <a class="nav-link" href={% url 'muro' %}>Blog</a>
+  </li>
+{% endblock home %}
+
+{% block blog_contenido %}
 <p>
-    <a href = {% url 'muro' %}>Volver<a/>
+    <a href = {% url 'muro'  %}>Volver<a/>
 </p>
 <body>
 <p>
@@ -18,4 +24,4 @@
 </p>
 
 
-{% endblock crear_posteo %}
+{% endblock blog_contenido %}

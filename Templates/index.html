@@ -139,7 +139,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Distribucion</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">   
-                                        <a class="small text-white stretched-link" {% block link_dist %}<a class="nav-link" href={% url 'distribucion' %}>{% endblock link_dist %}></a>
+                                        <a class="small text-white stretched-link" {% block link_dist %}<a class="nav-link" href={% url 'distribucion' %}>{% endblock link_dist %}>Altas, baja y edicion</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -159,7 +159,9 @@
                         <div class="card mb-4">
                         {% endblock tarjeta %}
                             {% block campos %}Proyecto Final de Santiago Navalon y Rodrigo Gimenez{% endblock campos %}
-                         
+                            {% block youtube %}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LC35TVFDW34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {% endblock youtube %}
                         </div>
                     </div>
                 </main>

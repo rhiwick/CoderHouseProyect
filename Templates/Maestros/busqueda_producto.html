@@ -43,7 +43,8 @@
     </ul>
     {% else %}
     Aun no hay productos creados, puede dar de alta uno en la seccion Maestros
+    <a href={% url 'busqueda_producto' %}>Buscar</a>
     {% endif %}
 {% endblock informacion %}
-
+{% block youtube %}{% endblock youtube %}
 {% endblock campos %}

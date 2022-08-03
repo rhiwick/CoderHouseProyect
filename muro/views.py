@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -13,7 +12,7 @@ from django.views.generic.list import ListView
 class Posteos(ListView):
     template_name = 'Muro/base.html'
     queryset = models.PosteosUsuarios.objects.all().order_by('-id')
-    paginate_by = 5
+    paginate_by = 3
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -22,9 +21,6 @@ class Posteos(ListView):
         return context
 
 
-def muro(request):
-    posteos = reversed(models.PosteosUsuarios.objects.all())
-    return render(request, 'Muro/base.html', {'object_list':posteos} ) 
     
 @login_required
 def postear(request):
@@ -71,9 +67,6 @@ def postear(request):
                     } )
     return render(request, 'Muro/crear_post.html',{'form':form})
 
-
-def backup(request):
-    return render(request, 'base_backup.html')
 
 
 def ver_autor(request, user):

@@ -36,14 +36,19 @@
 <p></p>
 <p></p>
     <p>Resultado de la busqueda:</p>
+
     <ul>
         {%for transporte in object_list %}
         <li>{% block Form %}{% endblock Form %}{% block botones %}{% endblock botones %}Codigo: {{transporte.codigo}}- Tipo: {{transporte.tipo}}- Marca: {{transporte.marca}}- Modelo: {{transporte.modelo}}</li>
+
         {% endfor %}
+
     </ul>
+
     {% else %}
     Aun no se han creado transportes. Cree uno y vuelva a consultar
+    <a href={% url 'busqueda_transporte' %}>Buscar</a>
     {% endif %}
 {% endblock informacion %}
-
+{% block youtube %}{% endblock youtube %}
 {% endblock campos %}

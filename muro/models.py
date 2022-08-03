@@ -3,7 +3,6 @@ from ckeditor.fields import RichTextField
 from django.forms import IntegerField
 
 
-
 class PosteosUsuarios(models.Model):
     autor = models.CharField(max_length=15)
     imagen = models.ImageField(upload_to='imagenes')

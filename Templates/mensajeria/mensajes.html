@@ -1,0 +1,27 @@
+{% extends 'Muro/base.html' %}
+
+
+
+
+{% block blog_contenido %}
+
+<p>
+    <a href = {% url 'posteos'  %}>Ir al Blog<a/>
+</p>
+
+{% for mensaje in object_list %}
+
+<p>Lista de mensajes:</p>
+        <p>Fecha: {{mensaje.fecha_mensaje}}</p>
+        <p>De: {{mensaje.de_user}}</p>
+        <p>Mensaje: {{mensaje.mensaje}}</p>
+
+        <p><a class="nav-link" href={% url 'posteos' %}>Volver</a></p>
+{% endfor %}
+
+
+
+<p><a class="nav-link" href={% url 'enviar_mensajes' %}>Enviar Mensaje Nuevo</a></p>
+
+
+{% endblock blog_contenido %}

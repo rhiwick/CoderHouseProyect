@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'muro',
     'ckeditor',
+    'mensajeria',
 ]
 
 MIDDLEWARE = [

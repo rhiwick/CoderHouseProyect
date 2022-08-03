@@ -1,0 +1,27 @@
+{% extends 'Muro/base.html' %}
+
+
+
+
+
+{%block blog_titulo %}Enviar Mensaje{%endblock blog_titulo %}
+
+
+{% block blog_contenido %}
+<p>
+    <a href = {% url 'mensajes'  %}>Ir a mensajes<a/>
+</p>
+<body>
+
+<p>
+    
+    <form action={%url 'enviar_mensajes'%} method="post">
+        {%csrf_token%}
+        <table>
+            {{form.as_table}}
+        </table>
+    <button>Enviar Mensaje</button>
+</p>
+
+{% block youtube %}{% endblock youtube %}
+{% endblock blog_contenido %}

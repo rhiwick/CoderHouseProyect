@@ -1,15 +1,11 @@
 {% extends 'Muro/base.html' %}
 
 {%block blog_titulo %}Crear Post{%endblock blog_titulo %}
-{% block home %}
-<li class="nav-item">
-    <a class="nav-link" href={% url 'posteos' %}>Blog</a>
-  </li>
-{% endblock home %}
+
 
 {% block blog_contenido %}
 <p>
-    <a href = {% url 'posteos'  %}>Volver<a/>
+    <a href = {% url 'posteos'  %}>Ir al blog<a/>
 </p>
 <body>
 <p>

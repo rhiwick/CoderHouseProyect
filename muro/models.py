@@ -10,6 +10,9 @@ class PosteosUsuarios(models.Model):
     sub_titulo = models.CharField(max_length=30)
     posteo = RichTextField()
     fecha_posteo = models.DateTimeField(null=True)
+    
+    def __str__(self):
+        return f'{self.autor}'
 
 
 class Autor(models.Model):
@@ -19,4 +22,7 @@ class Autor(models.Model):
     apellido = models.CharField(max_length=15)
     correo = models.EmailField(null=True)
     descripcion = RichTextField(null=True)
+    
+    def __str__(self):
+        return f'{self.usuario}'
     

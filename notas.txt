@@ -1,0 +1,27 @@
+Buenas team, como estan? Les dejo unos puntos para que revisen.
+
+
+
+
+
+- falta registrar los modelos para permitir la administracion de toda la info de la app desde /admin
+listo
+
+- Permitir editar, eliminar y tambien acceder a que el listado de blogs sea solo un resumen, y si se quiere acceder a ver 
+toda la info que exista otra vista... ya que si la publicacion es muy larga no se puede tener nocion de las publicaciones que existen.
+
+- A la parte de mensajeria solo le cambiaria que el input de a que user enviar el msj, que sea un select (esto se puede hacer cambiando 
+el charfield por un foreigkey en el model de los mensajes... y en el form del mensaje por un choicefield)
+
+
+
+
+
+
+
+Cualquier duda que tengan escribanme por aca o en caso de no estar habilitado este medio escribanme por el chat de la plataforma...
+
+
+Me falto decirles que con lo que tienen de proyecto actualmente estarian aprobados, pero no por ahi con la nota que esperaban teniendo en cuenta que hasta la parte de mensajeria hicieron...
+
+Por esto tambien pueden avisarme si van a hacer o no esas modificaciones para saber si ya les paso la nota o espero a esas correcciones para hacerlo...

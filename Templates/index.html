@@ -172,7 +172,7 @@
                             <div>
                                 <a href={% url 'about_santi' %}>Acerca de Santiago Navalon</a>
                                 &middot;
-                                <a href="{% url 'about_rodri' %}">Acerca de Rodrigo Gimenez</a>
+                                <a href={% url 'about_rodri' %}>Acerca de Rodrigo Gimenez</a>
                             </div>
                         </div>
                     </div>
@@ -180,12 +180,12 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src={% static "vistas/js/scripts.js" %}></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src={% static "vistas/assets/demo/chart-area-demo.js" %}></script>
+        <script src={% static "vistas/assets/demo/chart-bar-demo.js" %}></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src={% static "vistas/js/datatables-simple-demo.js" %}></script>
     </body>
     
 </html>

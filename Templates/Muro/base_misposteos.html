@@ -43,7 +43,7 @@
                 <a class="nav-link" href={% url 'mensajes' %}>Mensajeria</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={% url 'misposteos' %}>Mis Posteos</a>
+                <a class="nav-link" href={% url 'posteos' %}>Posteos</a>
               </li>
               {% endblock home %}
               <li class="nav-item">
@@ -72,7 +72,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    {%block blog_contenido %}
+                    {%block blog_contenido_2 %}
                     <!-- Post preview-->
                     {% comment %} {% endcomment %}
                     
@@ -83,6 +83,7 @@
                             <h2 class="post-title">{{posteo.titulo}}</h2>
                             <h4 class="card-title">{{posteo.sub_titulo}}</h4>
                             <p class="card-text">{{posteo.posteo | safe}}</p>
+                            <a href={% url 'elimine_posteo' posteo.id %}>Eliminar</a>
                         </a>
                         <p class="post-meta">
                             Escrito por:
@@ -97,7 +98,7 @@
                     {% endfor %}
                   
                     
-                    {% endblock blog_contenido %}
+                    {% endblock blog_contenido_2 %}
                     <!-- Pager-->
                 </div>
             </div>

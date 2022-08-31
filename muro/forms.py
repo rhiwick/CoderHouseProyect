@@ -8,3 +8,5 @@ class FormCrearPosteo(forms.Form):
     sub_titulo = forms.CharField()
     posteo = RichTextFormField()
     
+class FormEliminarPosteo(forms.Form):
+    posteo_codigo = forms.CharField(max_length=30)

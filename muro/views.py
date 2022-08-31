@@ -6,6 +6,8 @@ from . import forms
 from datetime import datetime
 from accounts.models import MasDatosUsuario as descripcion
 from django.views.generic.list import ListView
+from django.views.generic.edit import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -21,6 +23,32 @@ class Posteos(ListView):
         return context
 
 
+class Misposteos(ListView):
+        
+        template_name = 'Muro/base_misposteos.html'
+        #queryset = models.PosteosUsuarios.objects.filter(autor=current_user)
+        paginate_by = 5
+        def get_queryset(self, *args, **kwargs):
+            return models.PosteosUsuarios.objects.filter(autor=self.request.user)
+    
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['message'] = 'Listado de post'
+        
+            return context
+
+class EliminePosteo(LoginRequiredMixin, DeleteView):
+        model = Posteos
+        template_name = 'Muro/base_misposteos.html'
+        #success_url = '/blog/misposteos/'
+        def get_queryset(self, *args, **kwargs):
+            return models.PosteosUsuarios.objects.filter(autor=self.request.user)
+    
+        # def get_context_data(self, **kwargs):
+        #     context = super().get_context_data(**kwargs)
+        #     context['message'] = 'Listado de post'
+        
+        #     return context
     
 @login_required
 def postear(request):
@@ -74,3 +102,5 @@ def ver_autor(request, user):
     object_list = models.Autor.objects.filter(usuario=user)
     
     return render(request, 'Muro/autor.html', {'object_list':object_list})
+
+

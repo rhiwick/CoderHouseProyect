@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django.shortcuts import render
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -8,6 +9,7 @@ from accounts.models import MasDatosUsuario as descripcion
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages import success
 
 
 
@@ -37,19 +39,19 @@ class Misposteos(ListView):
         
             return context
 
-class EliminePosteo(LoginRequiredMixin, DeleteView):
-        model = Posteos
-        template_name = 'Muro/base_misposteos.html'
-        #success_url = '/blog/misposteos/'
-        def get_queryset(self, *args, **kwargs):
-            return models.PosteosUsuarios.objects.filter(autor=self.request.user)
-    
-        # def get_context_data(self, **kwargs):
-        #     context = super().get_context_data(**kwargs)
-        #     context['message'] = 'Listado de post'
+def EliminePosteo(request,posteo_id):
+        try:
+            post = models.PosteosUsuarios.objects.get(pk=posteo_id)
+        except models.PosteosUsuarios.DoesNotExist:
+            messages.error(request, "El post no existe")
+            return redirect("misposteos")
         
-        #     return context
-    
+        # if post.autor != request.user:
+        #     messages.error(request, "No eres el autor")
+        #     return redirect("misposteos")
+        post.delete()
+        messages.success(request, f"El post {post.titulo} ha sido eliminado")
+        return redirect("misposteos")
 @login_required
 def postear(request):
     

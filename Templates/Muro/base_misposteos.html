@@ -83,7 +83,7 @@
                             <h2 class="post-title">{{posteo.titulo}}</h2>
                             <h4 class="card-title">{{posteo.sub_titulo}}</h4>
                             <p class="card-text">{{posteo.posteo | safe}}</p>
-                            <a href={% url 'elimine_posteo' posteo.id %}>Eliminar</a>
+                            <a href={% url 'eliminar_posteo' posteo.id %} class="btn btn-danger" >Eliminar</a>
                         </a>
                         <p class="post-meta">
                             Escrito por:
